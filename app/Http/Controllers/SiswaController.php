@@ -36,10 +36,10 @@ class SiswaController extends Controller
 
     private $siswa = [
         ['id' => 1, 'nama' => 'Fazli', 'kelas' => 'XI RPL 1'],
-        ['id' => 1, 'nama' => 'Sulis', 'kelas' => 'XI Kuliner 1'],
-        ['id' => 1, 'nama' => 'Rido', 'kelas' => 'XI RPL 1'],
-        ['id' => 1, 'nama' => 'Tio', 'kelas' => 'XI TKR 1'],
-        ['id' => 1, 'nama' => 'Kikiw', 'kelas' => 'X RPL 9']
+        ['id' => 2, 'nama' => 'Sulis', 'kelas' => 'XI Kuliner 1'],
+        ['id' => 3, 'nama' => 'Rido', 'kelas' => 'XI RPL 1'],
+        ['id' => 4, 'nama' => 'Tio', 'kelas' => 'XI TKR 1'],
+        ['id' => 5, 'nama' => 'Kikiw', 'kelas' => 'X RPL 9']
     ];
 
     public function index()
@@ -85,29 +85,29 @@ class SiswaController extends Controller
         return view('siswa.edit', compact('siswaItem'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
+    public function update(Request $request, $id){
+         $request->validate([
             'nama' => 'required|string|max:255',
             'kelas' => 'required|string|max:10'
         ]);
-        $siswa = Session::get('siswa', []);
-        $index = collect($siswa)->search(function ($item) use ($id) {
+
+        $siswa = Session::get('siswa',[]);
+        $index = collect($siswa)->search(function ($item) use ($id){
             return $item['id'] == $id;
         });
 
-        if ($index === false) {
-            return redirect()->route('siswa.index')->with('error', 'Siswa tidak di temukan');
+        if($index === false){
+            return redirect()->route('siswa.index')->with('error','Siswa Not Found');
         }
 
         $siswa[$index] = [
             'id' => $id,
             'nama' => $request->nama,
-            'kelas' => $request->kelas,
+            'kelas' => $request->kelas
         ];
-        Session::put('siswa', $siswa);
 
-        return redirect()->route('siswa.index')->with('success', 'Data Siswa Berhasil diedit');
+        Session::put('siswa', $siswa);
+         return redirect()->route('siswa.index')->with('berhasil','Siswa Berhasil Diubah');
     }
 
     public function destroy($id)
