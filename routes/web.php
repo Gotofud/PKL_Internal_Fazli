@@ -34,3 +34,12 @@ Route::resource('siswa', SiswaController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Test Template
+Route::get('/testing', function () {
+    return view('layouts.admin');
+});
+
+Route::get('latihan-js',function () {
+    return view('latihan-js');
+});
