@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Middleware\isAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,6 +43,16 @@ Route::get('/testing', function () {
     return view('layouts.admin');
 });
 
-Route::get('latihan-js',function () {
+Route::get('latihan-js', function () {
     return view('latihan-js');
+});
+
+// Admin Routes
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'middleware' => ['auth', isAdmin::class]
+], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('category', CategoryController::class);
 });
