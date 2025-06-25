@@ -2,15 +2,16 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Middleware\isAdmin;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route Dasar
 Route::get('sample', function () {
@@ -38,6 +39,7 @@ Route::resource('siswa', SiswaController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [FrontController::class, 'index'])->name('welcome');
 
 // Test Template
 Route::get('/testing', function () {
