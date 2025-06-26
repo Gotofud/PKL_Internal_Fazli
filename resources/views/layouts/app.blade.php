@@ -96,6 +96,24 @@
     @include('layouts.components.user.navbar')
     <!-- End Nav bar -->
 
+    <section class="py-3">
+        <div class="container-fluid">
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        </div>
+    </section>
+
     <div class="body-wrapper">
         <div class="container-fluid">
             @yield('content')

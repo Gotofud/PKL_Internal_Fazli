@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="table-responsive">
-        <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Tambah Category</a>
+        <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Tambah Produk</a>
         <table class="table">
             <thead class="bg-inverse table-primary">
                 <tr>

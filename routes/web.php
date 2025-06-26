@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FrontController;
+use App\Http\Controllers\EcommerceController;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiswaController;
@@ -39,7 +39,6 @@ Route::resource('siswa', SiswaController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [FrontController::class, 'index'])->name('welcome');
 
 // Test Template
 Route::get('/testing', function () {
@@ -59,4 +58,16 @@ Route::group([
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+});
+
+Route::get('/', [EcommerceController::class, 'index'])->name('home');
+Route::group([
+    'middleware' => ['auth']
+], function(){
+    Route::post('/order',[EcommerceController::class,'createOrder'])->name('order.create');
+    Route::post('/checkout',[EcommerceController::class,'checkOut'])->name('checkout');
+    Route::get('/my-orders',[EcommerceController::class,'myOrders'])->name('orders.my');
+    Route::get('/my-orders/{id}',[EcommerceController::class,'orderDetail'])->name('orders.detail');
+    Route::post('order/update-quantity',[EcommerceController::class,'updateQuantity'])->name('order.update-quantity');
+    Route::post('/order/remove-item',[EcommerceController::class,'removeItem'])->name('order.remove-item');
 });
