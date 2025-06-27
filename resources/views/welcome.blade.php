@@ -36,7 +36,7 @@
             <div class="content-wrapper col-md-7">
               <div class="categories my-3">100% natural</div>
               <h3 class="display-4">Fresh Smoothie & Summer Juice</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam
+              <p>Lorem ipsum   dolor sit amet, consectetur adipiscing elit. Dignissim massa diam
               elementum.</p>
               <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop
               Now</a>
@@ -166,7 +166,8 @@
         <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
           <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-          @foreach ($product as $item)
+
+        @foreach ($product as $item)
         <div class="col">
         <div class="product-item">
         <a href="#" class="btn-wishlist"><svg width="24" height="24">
@@ -201,6 +202,7 @@
         </div>
         </div>
       @endforeach
+      
           </div>
         </div>
         </div>
@@ -220,7 +222,7 @@
         </div>
         <div class="col-md-8">
         <h2 class="my-5">Shop faster with foodmart App</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet
+        <p> ipsum dolor sit amet, consectetur adipiscing elit. Sagittis sed ptibus liberolectus nonet
           psryroin. Amet sed lorem posuere sit iaculis amet, ac urna. Adipiscing fames semper erat ac in
           suspendisse iaculis. Amet blandit tortor praesent ante vitae. A, enim pretiummi senectus magna.
           Sagittis sed ptibus liberolectus non et psryroin.</p>

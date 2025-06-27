@@ -15,8 +15,11 @@ class EcommerceController extends Controller
         return view('welcome', compact('category', 'product'));
     }
 
+
+    
     public function createOrder(Request $request){
-        try {
+       try {
+        // Masih Kosong
         } catch (\Exception $e) {
             return redirect()->route('home')->with('error','Error' . $e->getMessage());
         }

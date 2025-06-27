@@ -8,7 +8,7 @@ use App\Models\Product;
 
 class OrderProduct extends Model
 {
- protected $fillable = ['order_id','product_id','quantity','subtota;'];
+ protected $fillable = ['order_id','product_id','quantity','subtotal'];
  
  public function order(){
     return $this->belongsTo(Order::class,'order_id');
