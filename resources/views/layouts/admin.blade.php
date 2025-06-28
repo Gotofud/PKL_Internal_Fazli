@@ -37,10 +37,10 @@
   </div>
   <div id="main-wrapper">
     <!-- Sidebar -->
-    @include('layouts.components.sidebar')
+    @include('layouts.components.admin.sidebar')
     <div class="page-wrapper">
       <!--  Header Start -->
-      @include('layouts.components.navbar')
+      @include('layouts.components.admin.navbar')
       <!--  Header End -->
 
       <div class="body-wrapper">
