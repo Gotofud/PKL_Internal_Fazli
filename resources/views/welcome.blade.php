@@ -124,7 +124,7 @@
       <div class="col-md-12">
       <div class="category-carousel swiper">
         <div class="swiper-wrapper">
-        @foreach ($category as $item)
+        @foreach ($categories as $item)
       <a href="#" class="nav-link category-item swiper-slide">
         <img src="{{ asset('user/images/icon-bread-herb-flour.png') }}" alt="Category Thumbnail">
         <h3 class="category-title">{{ $item->nama }}</h3>

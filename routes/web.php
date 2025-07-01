@@ -65,16 +65,10 @@ Route::get('/', [EcommerceController::class, 'index'])->name('home');
 Route::group([
     'middleware' => ['auth']
 ], function(){
-    Route::post('/order',[EcommerceController::class,'createOrder'])
-    ->name('order.create');
-    Route::post('/checkout',[EcommerceController::class,'checkOut']
-    )->name('checkout');
-    Route::get('/my-orders',[EcommerceController::class,'myOrders'])
-    ->name('orders.my');
-    Route::get('/my-orders/{id}',[EcommerceController::class,'orderDetail'])
-    ->name('orders.detail');
-    Route::post('order/update-quantity',[EcommerceController::class,'updateQuantity'])
-    ->name('order.update-quantity');
-    Route::post('/order/remove-item',[EcommerceController::class,'removeItem'])
-    ->name('order.remove-item');
+    Route::post('/order',[EcommerceController::class,'createOrder'])->name('order.create');
+    Route::post('/checkout',[EcommerceController::class,'checkOut'])->name('checkout');
+    Route::get('/my-orders',[EcommerceController::class,'myOrders'])->name('orders.my');
+    Route::get('/my-orders/{id}',[EcommerceController::class,'orderDetail'])->name('orders.detail');
+    Route::post('order/update-quantity',[EcommerceController::class,'updateQuantity'])->name('order.update-quantity');
+    Route::post('/order/remove-item',[EcommerceController::class,'removeItem'])->name('order.remove-item');
 });
