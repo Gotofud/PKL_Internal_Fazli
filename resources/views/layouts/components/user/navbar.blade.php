@@ -129,13 +129,7 @@
                                 <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
                                 <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
                             @else
-                                <li>
-                                    <a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasCart" role="button"
-                                        aria-controls="offcanvasCart">
-                                        View Cart
-                                    </a>
-                                </li>
-                                <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                <li><a class="dropdown-item" href="{{ route('orders.my')  }}">My Orders</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
